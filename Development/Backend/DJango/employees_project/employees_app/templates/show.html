@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Records</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+
+      <form class="post-form" action="/search/{{ employees.employee_key }}" method="GET">
+        <h3>Busqueda por id: </h3>
+        <p><input type="text" name="employee_key"value=" {{ employees.employee_key}}"></p>
+        <p> <button type="submit" class="btn btn-success">Search</button> </p>
+      </form>
+
+
+
+
+    <table class=" table table-striped table-bordered table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee name</th>
+          <th>Employee lastname</th>
+          <th>Employee Email</th>
+          <th>Employee level</th>
+          <th>Employee gender</th>
+          <th>Employee salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employees in employees %}
+        <tr>
+          <td> {{ employees.employee_key }}</td>
+          <td> {{ employees.name }}</td>
+          <td> {{ employees.lastname }}</td>
+          <td> {{ employees.email }}</td>
+          <td> {{ employees.level }}</td>
+          <td> {{ employees.gender }}</td>
+          <td> {{ employees.salary }}</td>
+          <td>
+            <a href="/edit/{{ employees.employee_key }}"><span class="glyphicon-pencil">Edit</span></a>
+            <a href="/delete/{{ employees.employee_key }}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <a href="/emp" class="btn btn-primary">Add new record</a>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    {% load staticfiles %}
+  </head>
+  <body>
+    <form method="POST" class="post-form" action="/emp" >
+      {% csrf_token %}
+    <br>
+        <div class="container">
+    <br>
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"></label>
+      <div class="col-sm-4">
+        <h3>Enter details</h3>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Employee id: </label>
+      <div class="col-sm-4">
+        {{ form.employee_key}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Name: </label>
+      <div class="col-sm-4">
+        {{ form.name }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Last name: </label>
+      <div class="col-sm-4">
+        {{ form.lastname }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Level: </label>
+      <div class="col-sm-4">
+        {{ form.level }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Gender: </label>
+      <div class="col-sm-4">
+        {{ form.gender }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Salary:: </label>
+      <div class="col-sm-4">
+        {{ form.salary }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email: </label>
+      <div class="col-sm-4">
+        {{ form.email }}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Password: </label>
+      <div class="col-sm-4">
+        {{ form.password }}
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      <label class="col-sm-1 col-form-label"></label>
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+        </div>
+
+
+    </form>
+  </body>
+</html>
