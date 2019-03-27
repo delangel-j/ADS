@@ -38,19 +38,8 @@
     </div>
     <!-- END Header -->
 
-
-
-
-
-
-
     <!-- Content -->
     <div id="content" class="colM">
-
-
-
-
-
 
 
 <div id="content-main">
@@ -58,6 +47,7 @@
 
 
 <form action="/show" method="post" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="MoudZ2AGVLli0hOi3lUkPcjo8yRgDKC23MJ0okQtxID7y7kFyqgVpg0lMf27npeg">
+{% csrf_token %}
   <div class="form-row">
 
     <label class="required" for="id_username">Username:</label> <input type="text" name="username" autofocus required id="id_username">
