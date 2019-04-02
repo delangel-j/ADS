@@ -1,0 +1,28 @@
+<td-layout>
+	<td-layout-nav toolbarTitle="" navigationRoute="/">
+		<td-layout-manage-list>
+
+			<mat-toolbar td-sidenav-content>
+				<mat-toolbar-row>
+					<span>Menu</span>
+				</mat-toolbar-row>
+			</mat-toolbar>
+
+			<div td-sidenav-content>
+				<mat-nav-list>
+
+					<ng-template let-item let-last="last" ngFor [ngForOf]="routes">
+						<a mat-list-item 	[routerLink]="[item.route]"
+											[routerLinkActive]="['active']"
+											[routerLink]="">
+						<mat-icon class="red">{{item.icon}}</mat-icon>
+						{{item.title}}
+					</a>
+				</ng-template>
+
+			</mat-nav-list>
+		</div>
+		<router-outlet></router-outlet>
+	</td-layout-manage-list>
+</td-layout-nav>
+</td-layout>

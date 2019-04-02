@@ -1,0 +1,38 @@
+
+<mat-card>
+	<div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<strong>Importante!</strong> Al selecionar el icono de eliminar, se borrara por completo de la
+		base de datos 				  
+	</div>
+
+	<ng-template tdLoading="employees.list">
+		<mat-list class="will-load">
+			<div class="pad" *ngIf="employees?.length === 0" layout="row" layout-align="center">
+				<h2> No hay empleados para mostrar </h2>
+			</div>
+
+			<ng-template let-emp let-last="last" ngFor [ngForOf]="employees">
+				<mat-list-item>
+					<mat-icon matListAvatar>account_circle</mat-icon>
+					<h1 matLine> {{emp.employee_key}}</h1>
+          			<h3 matLine> Nombre: {{emp.name}} {{emp.lastname}}</h3>
+					  <h3 matLine> Nivel: {{emp.level}}</h3>
+					  <h3 matLine> Genero: {{emp.gender}}</h3>
+					  <h3 matLine> Salario: {{emp.salary}}</h3>
+					  <h3 matLine> Email: {{emp.email}}</h3>
+					  <h3 matLine> Password: {{emp.password}}</h3>
+					  <h1>Eliminar</h1>
+					<button onclick='alert("Empleado Eliminado exitosamente")' mat-icon-button (click)="delete(emp)">
+						<mat-icon>delete</mat-icon>
+					</button>
+					
+				</mat-list-item>
+
+				<mat-divider *ngIf="!last" [inset]="true"></mat-divider>
+			</ng-template>
+		</mat-list>
+	
+	</ng-template>
+</mat-card>
+

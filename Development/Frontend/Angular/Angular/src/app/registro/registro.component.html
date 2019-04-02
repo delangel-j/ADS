@@ -1,0 +1,186 @@
+<mat-card>
+  <div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<strong>Ayuda!</strong> llena todos los campos correctamente para poder agregar un empleado. 				  
+	</div>
+	<mat-card-title>
+		Crear Nuevo Empleado
+	</mat-card-title>
+
+	<mat-divider></mat-divider>
+
+	<mat-card-content>
+
+		<form #employeeForm="ngForm">
+    
+			<div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					  [(ngModel)]="employee.employee_key"
+					  #elementKeyControl="ngModel"
+					  type="text" 
+					  name="employee_key"
+					  placeholder="Clave del Empleado"
+					  maxlength="30"
+					  required
+					>
+					<mat-hint alig="start">
+            <span [hidden]="elementKeyControl.pristine || 
+            !elementKeyControl.errors?.required" class="tc-red-600"> Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+      </div>
+      <div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					[(ngModel)]="employee.name"
+					#elementNombreControl="ngModel"
+					type="text" 
+					name="name"
+					placeholder="Nombre del Empleado"
+					required
+					>
+					<mat-hint alig="start">
+            <span [hidden]="elementNombreControl.pristine || 
+            !elementNombreControl.errors?.required" class="tc-red-600"> Nombre Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+      </div>
+      
+      <div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					[(ngModel)]="employee.lastname"
+					#elementApellidoControl="ngModel"
+					type="text" 
+					name="lastname"
+					placeholder="Apellidos del Empleado"
+					required
+					>
+					<mat-hint alig="start">
+            <span [hidden]="elementApellidoControl.pristine || 
+            !elementApellidoControl.errors?.required" class="tc-red-600"> Apellidos Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+      </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+          [(ngModel)]="employee.level"
+          #elementNivelControl="ngModel"
+          type="number" 
+          name="level"
+          placeholder="Nivel de Empleado"
+          max ="4"
+          min = "1"
+          required
+          >
+          <mat-hint alig="start">
+            <span [hidden]="elementNivelControl.pristine || 
+            !elementNivelControl.errors?.required" class="tc-red-600"> Nivel de Empleado Requerido
+            </span>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+          [(ngModel)]="employee.gender"
+          #elementGeneroControl="ngModel"
+          type="text" 
+          name="gender"
+          placeholder="Genero"
+          maxlength="1"
+          required
+          >
+          <mat-hint alig="start">
+            <span [hidden]="elementGeneroControl.pristine || 
+            !elementGeneroControl.errors?.required" class="tc-red-600"> Genero Requerido
+            </span>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+          [(ngModel)]="employee.salary"
+          #elementSalarioControl="ngModel"
+          type="number" 
+          name="salary"
+          placeholder="Salario"
+          max ="100000.00"
+          min = "1"
+          required
+          >
+          <mat-hint alig="start">
+            <span [hidden]="elementSalarioControl.pristine || 
+            !elementSalarioControl.errors?.required" class="tc-red-600"> Salario Requerido
+            </span>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput
+          [(ngModel)]="employee.email"
+          #elementEmailControl="ngModel"
+          type="email" 
+          name="email"
+          placeholder="Email ej: nombre@dominio.com"
+          >
+        </mat-form-field>
+      </div>
+      <div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					  [(ngModel)]="employee.password"
+					  #elementPasswordControl="ngModel"
+					  type="password" 
+					  name="password"
+					  placeholder="Contraseña"
+					  maxlength="8"
+					  required
+					>
+					<mat-hint alig="start">
+            <span [hidden]="elementPasswordControl.pristine || 
+            !elementPasswordControl.errors?.required" class="tc-red-600"> Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+      </div>
+      <div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					  [(ngModel)]="employee.hash"
+					  #elementHashControl="ngModel"
+					  type="text" 
+					  name="hash"
+					  placeholder="Clave hash"
+					  maxlength="30"
+					  required
+					>
+					<mat-hint alig="start">
+            <span [hidden]="elementHashControl.pristine || 
+            !elementHashControl.errors?.required" class="tc-red-600"> Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+
+	<mat-card-actions>
+		<button onclick='alert("Empleado agregado exitosamente")' mat-button [disabled]="!employeeForm.valid" color="primary" (click)="save()" >
+      <mat-icon>save</mat-icon> Guardar </button>
+    
+		<button type="reset" mat-button [disabled] color="primary" > 
+      <mat-icon>clear</mat-icon>Limpiar </button>
+	</mat-card-actions>
+  
+  </form>
+  
+	</mat-card-content>
+	
+</mat-card>
